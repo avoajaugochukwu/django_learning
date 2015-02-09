@@ -10,7 +10,17 @@
 		<div class="container">
 			<div class="row">
 				<h1 class="page-header">Rango says ...</h1>
-				<p>Hello world <strong>{{ boldmessage }}</strong></p>
+				{% if categories %}
+					<ul>
+						{% for category in categories %}
+						<li>{{ category }}</li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<div class="warning">
+						<h3>There are no categories present.</h3>
+					</div>
+				{% endif %}
 				<a href="/rango/about">About</a>
 			</div>
 		</div>
