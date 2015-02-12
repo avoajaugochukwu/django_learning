@@ -13,17 +13,41 @@
 				{% if categories %}
 					<ul>
 						{% for category in categories %}
-						<li>{{ category }}</li>
+						<li>
+							<a href="/rango/category/{{ category.slug }}">
+								{{ category.name }}
+							</a>
+						</li>
 						{% endfor %}
 					</ul>
 				{% else %}
-					<div class="warning">
+					<div class="bg-danger">
 						<h3>There are no categories present.</h3>
 					</div>
 				{% endif %}
-				<a href="/rango/about">About</a>
+				<!-- ++++++++++++++++++++++++++++++++++++++++++ -->
+				<h3 class="page-header">Most viewed pages</h3>
+				{% if most_viewed_pages %}
+					<table class="table table-hover">
+							<thead>
+								<tr class="primary">
+									<th>Page Title</th>
+									<th>Page Views</th>
+								</tr>
+							</thead>
+						{% for page in most_viewed_pages %}
+
+							<tr>
+								<td>{{ page.title }}</td>
+								<td>{{ page.views }}</td>
+							</tr>
+
+						{% endfor %}
+					</table>
+				{% endif %}
+				<a href="/rango/about" class="btn btn-success btn-lg">About</a>
 			</div>
 		</div>
-		
+
 	</body>
 </html>

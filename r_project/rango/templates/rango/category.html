@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+		<title>Rango - {{ category_name }}</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1 class="page-header">{{ category_name }}</h1>
+
+
+				<div class="col-lg-offset-2 col-md-6">
+
+						{% if category %}
+
+							{% if pages %}
+								<ul>
+									{% for page in pages %}
+									<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+									{% endfor %}
+								</ul>
+							{% else %}
+								<div class="bg-warnign">
+									<h3>No pages currently in category</h3>
+								</div>
+							{% endif %}
+
+						{% else %}
+							<div class="bg-info">
+								<h2>{{ category_name }} not found</h2>
+							</div>
+						{% endif %}
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
