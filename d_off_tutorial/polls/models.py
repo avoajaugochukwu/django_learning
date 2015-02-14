@@ -13,6 +13,10 @@ class Question(models.Model):
 		return self.question_text
 
 	def was_published_recently(self):
+		# today = datetime.datetime.today()
+		# diff = today - self.pub_date
+		# return diff
+		print self.pub_date
 		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 	#attributes of was_published_recently method
@@ -20,7 +24,8 @@ class Question(models.Model):
 	was_published_recently.boolean = True
 	was_published_recently.short_description = 'Published recently'
 
-
+c = Question()
+c.was_published_recently
 #Choice database representation
 class Choice(models.Model):
 	question = models.ForeignKey(Question)
