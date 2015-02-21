@@ -1,0 +1,28 @@
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+		<title>{% block title %}  {% endblock %}</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				{% if error_message %}
+				{{ error_message }}
+				{% endif %}
+
+				{% if my_debugger %}
+				{{ my_debugger }}
+				{% endif %}
+				<h1 class="page-header">{% block header %} {% endblock %}</h1>
+				<div class="col-lg-offset-3 col-lg-6">
+					{% block main_section %}
+
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

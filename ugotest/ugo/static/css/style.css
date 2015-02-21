@@ -1,0 +1,22 @@
+@import url('bootstrap-3.min.css');
+body {
+	font-family: 'weblysleek';
+}
+
+.joke {
+	background: #cec;
+	padding: 20px;
+	margin-bottom: 5px;
+}
+.inner-category {
+	color: #f00;
+}
+
+@font-face {
+    font-family: 'weblysleek';
+    
+	  /*src: url('../font/weblysleek/weblysleekuisl.ttf') format('truetype');*/
+	  src: url('../font/weblysleekuil.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
