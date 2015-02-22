@@ -15,7 +15,7 @@ def detail(request, qd):
 	return HttpResponse('hello %s' %qd)
 
 
-def authors(request, author_name):
+def author(request, author_name):
 	#set title and header of page dynamically - matches given author_name
 	context_dict = {'title': author_name + ' page'}
 
