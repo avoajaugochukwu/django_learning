@@ -16,7 +16,7 @@ def detail(request, qd):
 
 
 def authors(request, author_name):
-	#set title and header of page dynamically - matches given author_name
+	"""set title and header of page dynamically - matches given author_name"""
 	context_dict = {'title': author_name + ' page'}
 
 	#get id of author
@@ -30,11 +30,15 @@ def authors(request, author_name):
 def add_joke(request):
 	context_dict = {'name': 'Avoaja', 'title': 'Add Joke'}
 	if request.method == 'POST':
-		form = JokeForm(request.POST)
+		context_dict['form'] = JokeForm(request.POST)
+
+		if context_dict['form'].is_valid():
+			context_dict['form'].save(commit=True)
+
+			return index(request)
+		else:
+			print context_dict['form'].errors
 	else:
-		form = JokeForm()
-
-
-
+		context_dict['form'] = JokeForm()
 	return render(request, 'ugo/add_joke.html', context_dict)
 

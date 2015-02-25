@@ -1,15 +1,25 @@
 @import url('bootstrap-3.min.css');
+* {
+	border-radius: 0 !important;
+}
 body {
 	font-family: 'weblysleek';
 }
 
 .joke {
 	background: #cec;
-	padding: 20px;
+	padding: 20px 50px;
 	margin-bottom: 5px;
 }
 .inner-category {
 	color: #f00;
+}
+
+.add_author_form {
+	font-size: 1.5em;
+}
+.add_author_form input, .add_author_form select {
+	font-size: .8em;
 }
 
 @font-face {
