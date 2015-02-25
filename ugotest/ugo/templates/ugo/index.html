@@ -14,18 +14,10 @@
 				<h4><a href="authors/{{ joke.author }}">{{ joke.author }}</a> <span class='pull-right'> <i class='inner-category'>Category: </i>{{ joke.category }} </span> </h4>
 			</div>
 		{% endfor %}
-		
 
 	{% else %}
 		<p>No jokes availabe</p>
 	{% endif %}
-
-	{% for d in i %}
-			{{ d }}
-	{% endfor %}
-
-
-	{{ context_dict }}
-
-
+	<br><br>
+	<a href="/ugo/add_joke" class="btn btn-success">Add Author</a>
 {% endblock %}

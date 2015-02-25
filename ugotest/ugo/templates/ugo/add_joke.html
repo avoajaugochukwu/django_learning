@@ -1,0 +1,16 @@
+{% extends "ugo/layout/base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block header %} {{ title }} {% endblock %}
+
+{% block main_section %}
+	{% csrf_token %}
+	<div class="col-lg-4 col-lg-offset-4">
+		<form class="form-control">
+		<input type="text" name="author_name" />
+
+	</form>
+	</div>
+	
+{% endblock %}
