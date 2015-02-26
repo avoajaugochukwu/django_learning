@@ -27,7 +27,7 @@ def category(request, category_name_slug):
 		#get returns model instance(1)
 		category = Category.objects.get(slug=category_name_slug)
 		context_dict['category_name'] = category.name
-
+		context_dict['category_name_url'] = category_name_slug
 
 		#get pages associated with category from above
 		#filter can return multiple model instances
@@ -91,3 +91,4 @@ def add_page(request, category_name_slug):
 	context_dict = {'form': form, 'category': cat}
 	
 	return render(request, 'rango/add_page.html', context_dict)
+	# rango/category/{{ category_name_url }}/add_page/
