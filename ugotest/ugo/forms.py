@@ -9,4 +9,3 @@ class JokeForm(forms.ModelForm):
 
 	class Meta:
 		model = Joke
-		fields = ('joke',)

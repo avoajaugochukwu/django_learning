@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from ugo.models import Author, Joke
 from ugo.forms import JokeForm
 
@@ -38,11 +39,9 @@ def add_joke(request):
 	if request.method == 'POST':
 		form = JokeForm(request.POST)
 		if form.is_valid():
-			author_id = form.get_author_id
-			context_dict['author_id'] = author_id
-			# form.save(commit=True)
+			form.save(commit=True)
 
-			return index(request)
+			return HttpResponseRedirect('/ugo')
 		else:
 			print context_dict['form'].errors
 	else:

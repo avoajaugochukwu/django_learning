@@ -11,7 +11,7 @@
 		{% for joke in jokes %}
 			<div class="joke">
 				<h3>{{ joke }}</h3>
-				<h4><a href="authors/{{ joke.author }}">{{ joke.author }}</a> <span class='pull-right'> <i class='inner-category'>Category: </i>{{ joke.category }} </span> </h4>
+				<h4><a href="/ugo/authors/{{ joke.author }}">{{ joke.author }}</a> <span class='pull-right'> <i class='inner-category'>Category: </i>{{ joke.category }} </span> </h4>
 			</div>
 		{% endfor %}
 
