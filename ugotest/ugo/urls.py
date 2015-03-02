@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from ugo import views
-
+# TemplateView in Django for static pages like homepage
 urlpatterns = patterns('',
 		url(r'^$', views.index, name='index'),
 		url(r'^authors/(?P<author_name>[\w\-]+)/$', views.authors, name='authors'),

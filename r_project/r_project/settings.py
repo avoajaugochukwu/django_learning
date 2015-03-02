@@ -95,3 +95,13 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 #media server for uploads
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+"""If you want more control over how the passwords are hashed, then in the settings.py
+ add in tuple to specify the PASSWORD_HASHERS:
+
+PASSWORD_HASHERS = (
+'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)"""

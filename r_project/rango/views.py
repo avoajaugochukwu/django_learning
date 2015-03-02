@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.http import HttpResponseRedirect
 from rango.models import Category, Page
 
 from rango.forms import CategoryForm, PageForm
@@ -22,12 +22,12 @@ def index(request):
 
 def category(request, category_name_slug):
 	context_dict = {}
-
+	context_dict['category_name_url'] = category_name_slug
 	try:
 		#get returns model instance(1)
 		category = Category.objects.get(slug=category_name_slug)
 		context_dict['category_name'] = category.name
-
+		
 
 		#get pages associated with category from above
 		#filter can return multiple model instances
@@ -49,7 +49,7 @@ def about(request):
 	return HttpResponse('This is the about page')
 
 
-
+"""Corresponding forms.py CategoryForm"""
 def add_category(request):
 	if request.method == 'POST':
 		form = CategoryForm(request.POST)
@@ -57,7 +57,7 @@ def add_category(request):
 		if form.is_valid():
 			form.save(commit=True)
 
-			return index(request)
+			return HttpResponseRedirect('/rango')
 
 		else:
 			print form.errors
@@ -67,9 +67,13 @@ def add_category(request):
 
 	return render(request, 'rango/add_category.html', {'form': form})
 
+
+
+"""Corresponding forms.py PageForm"""
 def add_page(request, category_name_slug):
 	try:
 		cat = Category.objects.get(slug=category_name_slug)
+		cat_slug = cat.slug
 	except Category.DoesNotExist:
 		cat = None
 
@@ -82,12 +86,14 @@ def add_page(request, category_name_slug):
 				page.views = 0
 				page.save()
 
-				return category(request, category_name_slug)
+				# return category(request, category_name_slug)
+				# redirect is used to remove add_page from the url
+				return HttpResponseRedirect('/rango/category/' + category_name_slug)
 		else:
 			print form.errors
 	else:
 		form = PageForm()
 
-	context_dict = {'form': form, 'category': cat}
-	
+	context_dict = {'form': form, 'category': cat_slug}
+
 	return render(request, 'rango/add_page.html', context_dict)

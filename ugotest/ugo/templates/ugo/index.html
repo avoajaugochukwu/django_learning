@@ -11,13 +11,14 @@
 		{% for joke in jokes %}
 			<div class="joke">
 				<h3>{{ joke }}</h3>
-				<h4><a href="authors/{{ joke.author }}">{{ joke.author }}</a> <span class='pull-right'> <i class='inner-category'>Category: </i>{{ joke.category }} </span> </h4>
+				<h4><a href="/ugo/authors/{{ joke.author }}">{{ joke.author }}</a> <span class='pull-right'> <i class='inner-category'>Category: </i>{{ joke.category }} </span> </h4>
 			</div>
 		{% endfor %}
 
 	{% else %}
 		<p>No jokes availabe</p>
 	{% endif %}
-	<br><br>
-	<a href="/ugo/add_joke" class="btn btn-success">Add Author</a>
+	<br>
+	{{ author_id }}
+	<a href="/ugo/add_joke" class="btn btn-success btn-lg">Add Joke</a>
 {% endblock %}
