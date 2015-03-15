@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from ugo.models import Author, Joke
 from ugo.forms import JokeForm
-
+from django.core.urlresolvers import reverse
 
 
 def index(request):
@@ -46,8 +46,17 @@ def add_joke(request):
 			return HttpResponseRedirect('/ugo')
 
 		else:
+			context_dict['form'] = form
 			print context_dict['form'].errors
 	else:
 		context_dict['form'] = JokeForm()
 	return render(request, 'ugo/add_joke.html', context_dict)
 
+def test(request):
+	request.session['name'] = 'Fuck off'
+	return HttpResponseRedirect(reverse(showname))
+	# return HttpResponse('hello')
+	# return authors(request, 'avoaja')
+
+def showname(request):
+	return HttpResponse('hello <h1>' + request.session['name'] +'</h1>')

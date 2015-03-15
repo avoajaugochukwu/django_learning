@@ -1,4 +1,14 @@
 @import url('bootstrap-3.min.css');
+li {
+	list-style-type: none;
+}
+.errorlist {
+	color: red;
+	line-height: 20px;
+	margin: 0;
+	display: inline;
+	float: right;
+}
 * {
 	border-radius: 0 !important;
 }

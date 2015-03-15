@@ -12,7 +12,7 @@
 				<div class="form-group">
 					{% csrf_token %}
 
-
+					{{ errors }}
 					{% for hidden in form.hidden_fields %}
 						{{ hidden }}
 					{% endfor %}

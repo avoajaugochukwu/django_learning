@@ -11,6 +11,7 @@ from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 # Create your views here.
 
 def index(request):
+	# request.session.set_test_cookie()
 	context_dict = {}
 
 	category_list = Category.objects.order_by('-likes')[:5]
@@ -116,6 +117,9 @@ def add_page(request, category_name_slug):
 
 """user registration """
 def register(request):
+	# if request.session.test_cookie_worked():
+	# 	print ">>> TEST COOKIE WORKED"
+	# 	request.session.delete_test_cookie()
 	#boolean for inform template about whether registration was successful
 	registered = False
 

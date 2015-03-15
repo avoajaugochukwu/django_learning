@@ -1,0 +1,3 @@
+#setting sessions
+request.session['key'] = value
+#then you can pass to context_dict

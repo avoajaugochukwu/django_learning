@@ -5,5 +5,7 @@ urlpatterns = patterns('',
 		url(r'^$', views.index, name='index'),
 		url(r'^authors/(?P<author_name>[\w\-]+)/$', views.authors, name='authors'),
 		url(r'^add_joke/$', views.add_joke, name='add_joke'),
-    url(r'^(?P<qd>\w+)/$', views.detail, name='detail'),
+    # url(r'^(?P<qd>\w+)/$', views.detail, name='detail'),
+    url(r'^test/$', views.test, name='test'),
+    url(r'^showname$', views.showname, name='showname'),
 )
