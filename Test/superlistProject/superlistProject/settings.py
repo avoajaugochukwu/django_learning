@@ -1,5 +1,5 @@
 """
-Django settings for TDD project.
+Django settings for superlistProject project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd=b%h5bd23d@n3(sr_4*#-4f#^h7-$$=la*n1%xj3nc$k9u3h4'
+SECRET_KEY = 'r7xn+zw@t&!nh1#0n^_ej(e8m#l%m0#ewo(+d0r)xe*s)&d&&c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'TDD.urls'
+ROOT_URLCONF = 'superlistProject.urls'
 
-WSGI_APPLICATION = 'TDD.wsgi.application'
+WSGI_APPLICATION = 'superlistProject.wsgi.application'
 
 
 # Database
