@@ -16,7 +16,7 @@ def index(request):
 
 	category_list = Category.objects.order_by('-likes')[:5]
 	context_dict['categories'] = category_list
-
+	print category_list
 	most_viewed_pages_list = Page.objects.order_by('-views')[:5]
 	context_dict['most_viewed_pages'] = most_viewed_pages_list
 

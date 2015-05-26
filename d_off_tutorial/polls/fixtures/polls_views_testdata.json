@@ -1,0 +1,37 @@
+[
+{
+    "fields": {
+        "question_text": "what's up?",
+        "pub_date": "2015-02-10T06:44:36Z"
+    },
+    "model": "polls.question",
+    "pk": 3
+},
+{
+    "fields": {
+        "choice_text": "The Sky",
+        "question": 3,
+        "votes": 0
+    },
+    "model": "polls.choice",
+    "pk": 1
+},
+{
+    "fields": {
+        "choice_text": "Nothing much",
+        "question": 3,
+        "votes": 1
+    },
+    "model": "polls.choice",
+    "pk": 2
+},
+{
+    "fields": {
+        "choice_text": "Let me Check",
+        "question": 3,
+        "votes": 0
+    },
+    "model": "polls.choice",
+    "pk": 3
+}
+]
