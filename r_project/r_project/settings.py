@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '6ndth=l-2y%4mz4af0h(5x+sdx1+2fw%@2e+0&-8nenxr$vmpr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
-    'storages',
+    # 'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,9 +88,7 @@ if 'RDS_DB_NAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-    DEBUG = False
-    AWS_QUERYSTRING_AUTH = False
-    AWS_LOCATION = 'static'
+    # DEBUG = False
 else:
     DATABASES = {
         'default': {
@@ -98,7 +96,7 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-    DEBUG = True
+    # DEBUG = True
 
 
 
@@ -123,11 +121,10 @@ USE_TZ = True
 
 # STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
-
-# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(
-                  os.path.abspath(__file__))), 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 # Location of template files for rango
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
@@ -159,13 +156,13 @@ LOGIN_URL = '/rango/login/'
 
 # ad storages to INSTALLED_APPS
 
-if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = 'avoaja-rango'
-    AWS_ACCESS_KEY_ID = 'AKIAJX53SKLH6CSK2YBA'
-    AWS_SECRET_ACCESS_KEY = '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'
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    STATIC_URL = S3_URL
+# if not DEBUG:
+#     AWS_STORAGE_BUCKET_NAME = 'avoaja-rango'
+#     AWS_ACCESS_KEY_ID = 'AKIAJX53SKLH6CSK2YBA'
+#     AWS_SECRET_ACCESS_KEY = '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'
+#     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#     S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+#     STATIC_URL = S3_URL
 
 
 # STATIC_ROOT = os.path.join(

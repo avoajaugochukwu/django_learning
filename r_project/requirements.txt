@@ -3,8 +3,3 @@ mysql-python==1.2.3
 pbr==0.10.7
 Pillow==2.7.0
 virtualenv==1.9.1
-virtualenv-clone==0.2.5
-virtualenvwrapper==4.3.2
-virtualenvwrapper-win==1.1.5
-django-storages==1.1.8
-boto==2.38.0
